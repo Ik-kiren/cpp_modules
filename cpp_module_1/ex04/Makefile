@@ -1,5 +1,5 @@
-NAME = zombie
-SRCS = zombie.cpp newZombie.cpp randomChump.cpp main.cpp
+NAME = sed
+SRCS = sed.hpp sed.cpp main.cpp
 OBJS = $(SRCS:cpp=o)
 
 all: $(NAME)
