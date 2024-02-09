@@ -4,21 +4,25 @@
 # include <iostream>
 # include "ICharacter.hpp"
 
+class ICharacter;
+
 class AMateria
 {
 protected:
 
-
+    std::string type;
 
 public:
 
-    AMateria();
-    AMateria(const std::string &type);
-    ~AMateria();
+    AMateria(void);
+    AMateria(const std::string &_type);
+    AMateria(const AMateria &amateria);
+    ~AMateria(void);
 
-    const std::string &getType() const;
+    const std::string &getType(void) const;
+    AMateria &operator=(const AMateria &rhs);
 
-    virtual AMateria *clone() const = 0;
+    virtual AMateria *clone(void) const = 0;
     virtual void use(ICharacter &target);
 };
 
