@@ -2,27 +2,22 @@
 
 Fixed::Fixed(void) : n(0)
 {
-    std::cout << "constructor called" << std::endl;
 
     return;
 }
 
 Fixed::Fixed(int const _n) : n(_n << n2)
 {
-    std::cout << "int constructor called" << std::endl;
 
     return;
 }
 Fixed::Fixed(float const _n) : n(std::roundf(_n * (1 << n2)))
 {
-    std::cout << "float constructor called " << std::endl;
-
     return;
 }
 
 Fixed::Fixed(Fixed const &src)
 {
-    std::cout << "copy constructor called" << std::endl;
     *this = src;
 
     return;
@@ -30,8 +25,6 @@ Fixed::Fixed(Fixed const &src)
 
 Fixed::~Fixed(void)
 {
-    std::cout << "deconstructor called" << std::endl;
-
     return;
 }
 
@@ -59,96 +52,69 @@ int Fixed::toInt(void) const
 
 Fixed &Fixed::operator=(Fixed const &rhs)
 {
-    std::cout << "assignement operator called" << std::endl;
-
     if (this != &rhs)
         this->n = rhs.getRawBits();
     return *this;
 }
 
-bool Fixed::operator>(Fixed const &rhs)
+bool Fixed::operator>(Fixed const &rhs) const
 {
-    std::cout << "greater than operator called" << std::endl;
-
     return this->getRawBits() > rhs.getRawBits();
 }
 
-bool Fixed::operator<(Fixed const &rhs)
+bool Fixed::operator<(Fixed const &rhs) const
 {
-    std::cout << "less than operator called" << std::endl;
-
     return this->getRawBits() < rhs.getRawBits();
 }
 
-bool Fixed::operator>=(Fixed const &rhs)
+bool Fixed::operator>=(Fixed const &rhs) const
 {
-    std::cout << "greater than or equal to operator called" << std::endl;
-
     return this->getRawBits() >= rhs.getRawBits();
 }
 
-bool Fixed::operator<=(Fixed const &rhs)
+bool Fixed::operator<=(Fixed const &rhs) const
 {
-    std::cout << "less than or equal to operator called" << std::endl;
-
     return this->getRawBits() <= rhs.getRawBits();
 }
 
-bool Fixed::operator==(Fixed const &rhs)
+bool Fixed::operator==(Fixed const &rhs) const
 {
-    std::cout << "equal to operator called" << std::endl;
-
     return this->getRawBits() == rhs.getRawBits();
 }
 
-bool Fixed::operator!=(Fixed const &rhs)
+bool Fixed::operator!=(Fixed const &rhs) const
 {
-    std::cout << "not equal to operator called" << std::endl;
-
     return this->getRawBits() != rhs.getRawBits();
 }
 
-Fixed	Fixed::operator+(Fixed const &rhs)
+Fixed	Fixed::operator+(Fixed const &rhs) const
 {
-    std::cout << "addition operator called" << std::endl;
-
     return Fixed(this->toFloat() + rhs.toFloat());
 }
 
-Fixed	Fixed::operator-(Fixed const &rhs)
+Fixed	Fixed::operator-(Fixed const &rhs) const
 {
-    std::cout << "substraction operator called" << std::endl;
-
     return Fixed(this->toFloat() - rhs.toFloat());
 }
 
-Fixed	Fixed::operator*(Fixed const &rhs)
+Fixed	Fixed::operator*(Fixed const &rhs) const
 {
-
-    std::cout << "multiplication operator called" << std::endl;
-
     return Fixed(this->toFloat() * rhs.toFloat());
 }
 
-Fixed	Fixed::operator/(Fixed const &rhs)
+Fixed	Fixed::operator/(Fixed const &rhs) const
 {
-    std::cout << "division operator called" << std::endl;
-
     return Fixed(this->toFloat() / rhs.toFloat());
 }
 
 Fixed	&Fixed::operator++(void)
 {
-    std::cout << "prefix increment operator called" << std::endl;
-
     ++this->n;
     return *this;
 }
 
 Fixed	Fixed::operator++(int)
 {
-    std::cout << "postfix increment operator called" << std::endl;
-
     Fixed old = *this;
     old.n = this->n++;
     return old;
@@ -156,16 +122,12 @@ Fixed	Fixed::operator++(int)
 
 Fixed	&Fixed::operator--(void)
 {
-    std::cout << "prefix decrement operator called" << std::endl;
-
     --this->n;
     return *this;
 }
 
 Fixed	Fixed::operator--(int)
 {
-    std::cout << "postfix decrement operator called" << std::endl;
-
     Fixed old = *this;
     old.n = this->n--;
     return old;

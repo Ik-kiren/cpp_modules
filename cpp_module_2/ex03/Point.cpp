@@ -2,32 +2,30 @@
 
 Point::Point(void) : x(0), y(0)
 {
-    std::cout << "constructor called" << std::endl;
+    return ;
 }
 
 Point::Point(float const f1, float const f2) : x(f1), y(f2)
 {
-    std::cout << "constructor called" << std::endl;
+    return ;
 }
 
-Point::Point(Point const &src)
+Point::Point(Point const &src) : x(src.x), y(src.y)
 {
-    *this = src;
-
     return;
 }
 
 Point::~Point(void)
 {
-    std::cout << "destructor called" << std::endl;
+    return ;
 }
 
-Fixed const Point::getx(void) const
+Fixed Point::getx(void) const
 {
     return this->x;
 }
 
-Fixed const Point::gety(void) const
+Fixed Point::gety(void) const
 {
     return this->y;
 }
@@ -40,4 +38,12 @@ Point &Point::operator=(Point const &rhs)
         (Fixed) this->y = rhs.gety();
     }
     return *this;
+}
+
+std::ostream	&operator<<(std::ostream &o, Point const &i)
+{
+    o << i.getx();
+    o << i.gety();
+
+    return o;
 }
