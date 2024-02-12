@@ -50,18 +50,25 @@ void Phonebook::searchContact()
     }
     do
     {
-        std::cout << "Please enter the contact index: " << std::flush << std::endl;
-        std::cin >> index;
+        std::cout << "Please enter the contact index: "  << std::endl;
+        std::getline(std::cin, line);
+        try
+        {
+            index = std::stoi(line);
+        }
+        catch(const std::exception& e)
+        {
+            std::cout << "Invalid index; please re-enter." << std::endl;
+            continue ;
+        }
         if (std::cin.good() && (index >= 0 && index <= 7) && !contact[index].first_name.empty()) {
             loop = true;
         } else {
             std::cin.clear();
-            //std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
             std::cout << "Invalid index; please re-enter." << std::endl;
         }
     }while (!loop);
     contact[index].displayInfo();
-    std::cout << std::endl;
 }
 
 void Phonebook::help()

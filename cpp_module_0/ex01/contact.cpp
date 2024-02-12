@@ -8,6 +8,11 @@ std::string Contact::addInfo()
     do
     {
         getline(std::cin, line);
+        if (std::cin.eof())
+        {
+            std::cout << std::endl;
+            exit(EXIT_SUCCESS);
+        }
         if(line.empty())
         {
             std::cout << "retry : ";
@@ -26,6 +31,11 @@ std::string Contact::addNumber()
     do
     {
         getline(std::cin, line);
+        if (std::cin.eof())
+        {
+            std::cout << std::endl;
+            exit(EXIT_SUCCESS);
+        }
         if(line.empty() || line.find_first_not_of("0123456789") != std::string::npos)
             std::cout << "retry : ";
         else
