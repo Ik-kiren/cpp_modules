@@ -15,10 +15,13 @@ public:
     Point(Point const &src);
     ~Point(void);
 
-	Fixed const getx(void) const;
-	Fixed const gety(void) const;
+	Fixed getx(void) const;
+	Fixed gety(void) const;
 
 	Point	&operator=(Point const &rhs);
 };
+
+std::ostream	&operator<<(std::ostream &o, Point const &i);
+bool bsp( Point const a, Point const b, Point const c, Point const point);
 
 #endif
