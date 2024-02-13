@@ -1,4 +1,14 @@
-#include "contact.hpp"
+#include "Contact.hpp"
+
+Contact::Contact(void)
+{
+
+}
+
+Contact::~Contact(void)
+{
+
+}
 
 std::string Contact::addInfo()
 {

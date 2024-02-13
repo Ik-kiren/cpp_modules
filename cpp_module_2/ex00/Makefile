@@ -1,6 +1,4 @@
-NAME = megaphone
-FLAGS = -Werror -Wall -Wextra -std=c++98
-SRCS = Megaphone.cpp main.cpp
+SRCS = main.cpp Fixed.cpp
 OBJS = $(SRCS:cpp=o)
 
 all: $(NAME)

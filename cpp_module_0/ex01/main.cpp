@@ -1,4 +1,4 @@
-#include "phonebook.hpp"
+#include "Phonebook.hpp"
 
 int main()
 {
@@ -16,9 +16,11 @@ int main()
             std::cout << std::endl;
             exit(EXIT_SUCCESS);
         }
-        if (line == "add")
+        if (line == "add" || line == "ADD")
             book.addContact();
-        else if (line == "search")
+        else if (line == "search" || line == "SEARCH")
             book.searchContact();
+        else if (line == "help" || line == "HELP")
+            book.help();
     }
 }

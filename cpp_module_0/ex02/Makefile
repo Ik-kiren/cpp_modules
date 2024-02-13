@@ -1,6 +1,6 @@
-NAME = megaphone
+NAME = account
 FLAGS = -Werror -Wall -Wextra -std=c++98
-SRCS = Megaphone.cpp main.cpp
+SRCS = Account.cpp tests.cpp
 OBJS = $(SRCS:cpp=o)
 
 all: $(NAME)

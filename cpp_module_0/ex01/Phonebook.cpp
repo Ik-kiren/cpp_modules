@@ -1,8 +1,13 @@
-#include "phonebook.hpp"
+#include "Phonebook.hpp"
 
-Phonebook::Phonebook()
+Phonebook::Phonebook(void)
 {
     last_add = 0;
+}
+
+Phonebook::~Phonebook(void)
+{
+
 }
 
 void Phonebook::addContact()
@@ -46,12 +51,22 @@ void Phonebook::searchContact()
     {
         if (contact[i].first_name.empty())
             break;
-        std::cout << i << " | " << std::setw(10)  << infoLen(contact[i].first_name) << " | " << std::setw(10) << infoLen(contact[i].last_name) << std::endl;
+        std::cout << std::setw(10) << "index:"  << " | " << std::setw(10) << "firstname:" << " | " <<  std::setw(10) << "lastname:" << " | " << std::setw(10) << "nickname:" << std::endl;
+        std::cout << std::setfill('-') << std::setw(52) << "-" << std::setfill(' ') << std::endl;
+        std::cout << std::setw(10) << i << " | ";
+        std::cout << std::setw(10) << infoLen(contact[i].first_name) << " | ";
+        std::cout << std::setw(10) << infoLen(contact[i].last_name) << " | ";
+        std::cout << std::setw(10) << infoLen(contact[i].nickname) << std::endl;
     }
     do
     {
-        std::cout << "Please enter the contact index: "  << std::endl;
+        std::cout << "Please enter the contact index: ";
         std::getline(std::cin, line);
+        if (std::cin.eof())
+        {
+            std::cout << std::endl;
+            exit(EXIT_SUCCESS);
+        }
         try
         {
             index = std::stoi(line);
