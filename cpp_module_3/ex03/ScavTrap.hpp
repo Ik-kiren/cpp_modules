@@ -6,6 +6,10 @@
 class ScavTrap : public virtual ClapTrap
 {
 
+protected:
+
+    int energy_point;
+
 public:
 
     ScavTrap(void);

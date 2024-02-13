@@ -28,6 +28,7 @@ ScavTrap::~ScavTrap(void)
 }
 void ScavTrap::attack(const std::string &target)
 {
+    std::cout << this->name << this->attack_damage << std::endl;
     if (this->hit_point <= 0)
     {
         std::cout << "ScavTrap " + this->name + " is dead he can't attack" << std::endl;

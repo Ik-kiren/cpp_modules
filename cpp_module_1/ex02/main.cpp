@@ -14,4 +14,10 @@ int main()
     std::cout << *strPTR << std::endl;
     std::cout << strREF << std::endl;
 
+    str = "hi this is zombie";
+
+    std::cout << str << std::endl;
+    std::cout << *strPTR << std::endl;
+    std::cout << strREF << std::endl;
+
 }

@@ -1,4 +1,5 @@
 #include "zombie.hpp"
+#include <cstdlib>
 
 int main()
 {
@@ -8,25 +9,10 @@ int main()
     bool        loop = false;
 
     std::cout << "zombies numbers : ";
-    //std::cin >> n;
     do
     {
         getline(std::cin, n);
-        try
-        {
-            int t = std::stoi(n);
-        }
-        catch(std::invalid_argument& e)
-        {
-            std::cout << "not a number retry: ";
-            continue ;
-        }
-        catch(std::out_of_range& e)
-        {
-            std::cout << "out of range retry: ";
-            continue ;
-        }
-        if (n.find_first_not_of("0123456789") == std::string::npos && std::stoi(n) > 0)
+        if (n.find_first_not_of("0123456789") == std::string::npos && atoi(n.c_str()) > 0)
             loop = true;
         else
             std::cout << "not a number retry: ";
@@ -35,8 +21,8 @@ int main()
     std::cout << "zombies name : ";
     std::cin >> str;
     
-    Zombie *zombies = zombieHorde(std::stoi(n), str);
-    for (int i = 0; i < std::stoi(n); i++)
+    Zombie *zombies = zombieHorde(atoi(n.c_str()), str);
+    for (int i = 0; i < atoi(n.c_str()); i++)
     {
        zombies[i].announce();
     }

@@ -4,7 +4,7 @@ OBJS = $(SRCS:cpp=o)
 all: $(NAME)
 
 $(NAME) : $(OBJS)
-		g++ $(FLAGS) $(OBJS) -o $(NAME)
+		g++ $(CPPFLAGS) $(OBJS) -o $(NAME)
 
 clean :
 	rm -f $(OBJS)

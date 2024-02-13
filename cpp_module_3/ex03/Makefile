@@ -1,6 +1,6 @@
-NAME = phonebook
+NAME = diamond
 CPPFLAGS = -Werror -Wall -Wextra -std=c++98
-SRCS = Contact.cpp Phonebook.cpp main.cpp
+SRCS = ClapTrap.cpp FragTrap.cpp ScavTrap.cpp DiamondTrap.cpp main.cpp
 OBJS = $(SRCS:cpp=o)
 
 all: $(NAME)

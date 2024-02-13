@@ -29,7 +29,7 @@ FragTrap::~FragTrap(void)
 
 void FragTrap::highFivesGuys(void)
 {
-    std::cout << "FragTrap " + this->name + " high fived the wind" << std::endl;
+    std::cout << "FragTrap " + this->name + " high fived etalon du cul" << std::endl;
 
     return ;
 }

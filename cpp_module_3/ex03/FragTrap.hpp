@@ -5,7 +5,6 @@
 
 class FragTrap : public virtual ClapTrap
 {
-
 public:
 
     FragTrap(void);
@@ -13,7 +12,6 @@ public:
     ~FragTrap(void);
 
     void highFivesGuys(void);
-
 };
 
 #endif
