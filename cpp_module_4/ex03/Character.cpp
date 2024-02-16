@@ -52,6 +52,7 @@ void Character::equip(AMateria *m)
             return ;
         }
     }
+    delete m;
     return ;
 }
 

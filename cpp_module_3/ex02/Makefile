@@ -1,13 +1,13 @@
 CXX = c++
-NAME = claptrap
+NAME = fragptrap
 CPPFLAGS = -Werror -Wall -Wextra -std=c++98
-SRCS = ClapTrap.cpp main.cpp
+SRCS = clapTrap.cpp Scavtrap.cpp FragTrap.cpp main.cpp
 OBJS = $(SRCS:cpp=o)
 
 all: $(NAME)
 
 $(NAME) : $(OBJS)
-		$(CXX) $(CPPFLAGS) $(OBJS) -o $(NAME)
+		g++ $(CPPFLAGS) $(OBJS) -o $(NAME)
 
 fclean:
 	rm -rf $(OBJS) $(NAME)

@@ -11,7 +11,7 @@ Fixed::Fixed(int const _n) : n(_n << n2)
 
     return;
 }
-Fixed::Fixed(float const _n) : n(std::roundf(_n * (1 << n2)))
+Fixed::Fixed(float const _n) : n(roundf(_n * (1 << n2)))
 {
     return;
 }

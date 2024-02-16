@@ -1,6 +1,6 @@
 NAME = sed
-CPPFLAGS = -Werror -Wall -Wextra -std=c++98CPPFLAGS = -Werror -Wall -Wextra -std=c++98
-SRCS = sed.hpp sed.cpp main.cpp
+CPPFLAGS = -Werror -Wall -Wextra -std=c++98
+SRCS = main.cpp Sed.cpp
 OBJS = $(SRCS:cpp=o)
 
 all: $(NAME)
@@ -12,7 +12,7 @@ clean :
 	rm -f $(OBJS)
 
 fclean : clean
-	rm $(NAME)
+	rm -f $(NAME)
 
 re : fclean all
 

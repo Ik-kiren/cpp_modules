@@ -1,4 +1,4 @@
-CC = g++
+CC = c++
 NAME = materia
 CPPFLAGS = -Wall
 SRCS = AMateria.cpp Character.cpp Cure.cpp Ice.cpp ICharacter.cpp IMateriaSource.cpp MateriaSource.cpp main.cpp

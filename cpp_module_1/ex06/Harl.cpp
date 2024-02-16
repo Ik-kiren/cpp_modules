@@ -26,7 +26,7 @@ void Harl::error()
 
 Harl::Harl()
 {
-
+    
 }
 
 Harl::~Harl()
@@ -39,32 +39,31 @@ void Harl::complain(std::string level)
     Fnctarray fnctarray[] = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
     std::string levels[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 
-    int i = 0;
-    for (i; i < 4; i++)
+    int j = 4;
+    for (int i = 0; i < 4; i++)
     {
-        if(!levels[i].compare(level))
+        if(!(levels[i].compare(level)))
         {
+            j = i;
             break;
         }
     }
-    
-    switch (i)
+
+    switch (j)
     {
     case 0:
-        (this->*fnctarray[i])();
-        i++;
+        (this->*fnctarray[j])();
+
 
     case 1:
-        (this->*fnctarray[i])();
-        i++;
+        (this->*fnctarray[j])();
+
     
     case 2:
-        (this->*fnctarray[i])();
-        i++;
+        (this->*fnctarray[j])();
 
     case 3:
-        (this->*fnctarray[i])();
-        i++;
+        (this->*fnctarray[j])();
         
     default:
         std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;

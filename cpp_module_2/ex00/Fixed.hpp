@@ -5,6 +5,11 @@
 
 class Fixed 
 {
+private:
+
+	int n;
+	static int const n2 = 8;
+	
 public:
 
 	Fixed(void);
@@ -16,11 +21,6 @@ public:
 
 	int getRawBits(void) const;
 	void setRawBits(int const raw);
-
-private:
-
-	int n;
-	static int const n2 = 8;
 };
 
 std::ostream	&operator<<(std::ostream &o, Fixed const &i);

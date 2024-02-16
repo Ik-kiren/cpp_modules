@@ -9,4 +9,6 @@ $(NAME) :
 fclean :
 		rm $(NAME)
 
-.PHONY : all fclean
+re : fclean all
+
+.PHONY : all fclean re

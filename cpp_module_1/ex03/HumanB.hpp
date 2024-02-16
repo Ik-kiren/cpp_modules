@@ -1,4 +1,7 @@
-#include "Weapon.hpp"
+#ifndef HUMANB_HPP
+# define HUMANB_HPP
+
+# include "Weapon.hpp"
 
 class HumanB
 {
@@ -12,3 +15,5 @@ class HumanB
         void setWeapon(Weapon &Weapon);
         void attack();
 };
+
+#endif

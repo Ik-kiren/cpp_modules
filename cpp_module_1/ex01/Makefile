@@ -1,6 +1,6 @@
 NAME = horde
 CPPFLAGS = -Werror -Wall -Wextra -std=c++98
-SRCS = zombie.cpp zombieHorde.cpp main.cpp
+SRCS = Zombie.cpp ZombieHorde.cpp main.cpp
 OBJS = $(SRCS:cpp=o)
 
 all: $(NAME)
@@ -12,7 +12,7 @@ clean :
 	rm -f $(OBJS)
 
 fclean : clean
-	rm $(NAME)
+	rm -f $(NAME)
 
 re : fclean all
 

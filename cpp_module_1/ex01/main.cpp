@@ -1,5 +1,6 @@
-#include "zombie.hpp"
+#include "Zombie.hpp"
 #include <cstdlib>
+#include <sstream>
 
 int main()
 {
@@ -24,7 +25,11 @@ int main()
     Zombie *zombies = zombieHorde(atoi(n.c_str()), str);
     for (int i = 0; i < atoi(n.c_str()); i++)
     {
-       zombies[i].announce();
+        std::stringstream ss;
+        ss << i;
+
+        zombies[i].setName(str + ss.str());
+        zombies[i].announce();
     }
     delete [] zombies;
 }

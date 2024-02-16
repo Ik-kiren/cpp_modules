@@ -1,3 +1,4 @@
+CXX = c++
 NAME = diamond
 CPPFLAGS = -Werror -Wall -Wextra -std=c++98
 SRCS = ClapTrap.cpp FragTrap.cpp ScavTrap.cpp DiamondTrap.cpp main.cpp

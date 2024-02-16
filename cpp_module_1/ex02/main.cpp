@@ -20,4 +20,14 @@ int main()
     std::cout << *strPTR << std::endl;
     std::cout << strREF << std::endl;
 
+    strREF = "test";
+
+    std::cout << str << std::endl;
+    std::cout << *strPTR << std::endl;
+    std::cout << strREF << std::endl;
+
+    std::cout << &str << std::endl;
+    std::cout << strPTR << std::endl;
+    std::cout << &strREF << std::endl;
+    
 }

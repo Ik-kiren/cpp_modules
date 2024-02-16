@@ -3,6 +3,9 @@
 
 # include "Fixed.hpp"
 
+class Fixed;
+
+
 class Point
 {
 private:

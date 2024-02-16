@@ -1,15 +1,14 @@
 #include "Harl.hpp"
+#include <cstdlib>
+#include <cctype>
 
-int main()
+int main(int argc, char **argv)
 {
-    std::string line;
     Harl harl;
 
-    do
-    {
-        std::cout << "cmd : " ;
-        std::cin >> line;
-        harl.complain(line);
-    } while (line.compare("exit"));
+    if (argc != 2)
+        return 0;
+    
+    harl.complain(argv[1]);
     
 }

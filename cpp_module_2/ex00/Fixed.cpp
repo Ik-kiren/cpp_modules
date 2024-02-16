@@ -2,7 +2,7 @@
 
 Fixed::Fixed(void) : n(0)
 {
-    std::cout << "constructor called" << std::endl;
+    std::cout << "default constructor called" << std::endl;
 
     return;
 }
@@ -45,7 +45,7 @@ void Fixed::setRawBits(int const raw)
 
 Fixed &Fixed::operator=(Fixed const &rhs)
 {
-    std::cout << "assignement operator called" << std::endl;
+    std::cout << "copy assignement operator called" << std::endl;
 
     if (this != &rhs)
         this->n = rhs.getRawBits();
@@ -54,7 +54,7 @@ Fixed &Fixed::operator=(Fixed const &rhs)
 
 std::ostream &operator<<(std::ostream &o, Fixed const &i)
 {
-    o << "value of n = "<< i.getRawBits();
+    o << i.getRawBits();
 
     return o;
 }

@@ -1,5 +1,8 @@
-#include <iostream>
-#include <fstream>
+#ifndef SED_HPP
+# define SED_HPP
+
+# include <iostream>
+# include <fstream>
 
 class Sed
 {
@@ -12,3 +15,5 @@ class Sed
         ~Sed();
         void copyFile(std::string find_str, std::string new_str);
 };
+
+#endif

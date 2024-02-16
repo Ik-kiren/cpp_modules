@@ -19,6 +19,7 @@ int main()
 
     for (int i = 0; i < 6; i++)
     {
+        tab[i]->makeSound();
         delete tab[i];
     }
     

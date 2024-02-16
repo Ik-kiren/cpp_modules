@@ -44,12 +44,12 @@ AMateria* MateriaSource::createMateria(const std::string &type)
         {
             if (!type.compare("ice"))
             {
-                AMateria *tmp = new Ice();
+                AMateria *tmp = srcs[i]->clone();
                 return tmp;
             }
             else if (!type.compare("cure"))
             {
-                AMateria *tmp = new Cure();
+                AMateria *tmp = srcs[i]->clone();
                 return tmp;
             }
         }

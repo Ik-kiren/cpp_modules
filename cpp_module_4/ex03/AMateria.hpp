@@ -17,7 +17,7 @@ public:
     AMateria(void);
     AMateria(const std::string &_type);
     AMateria(const AMateria &amateria);
-    ~AMateria(void);
+    virtual ~AMateria(void);
 
     const std::string &getType(void) const;
     AMateria &operator=(const AMateria &rhs);
