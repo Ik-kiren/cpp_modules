@@ -17,9 +17,11 @@ public:
 
     ClapTrap(void);
     ClapTrap(std::string _name);
+    ClapTrap(ClapTrap const &src);
     ~ClapTrap(void);
 
     int getHitPoint(void) const;
+    int getEnergy(void) const;
 
     void attack(const std::string &target);
     void takeDamage(unsigned int amount);

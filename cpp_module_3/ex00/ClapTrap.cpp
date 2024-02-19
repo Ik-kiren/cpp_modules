@@ -12,6 +12,14 @@ ClapTrap::ClapTrap(std::string _name) : name(_name), hit_point(10), energy_point
     return ;
 }
 
+ClapTrap::ClapTrap(ClapTrap const &src)
+{
+    this->name = src.name;
+    this->hit_point = src.hit_point;
+    this->energy_point = src.energy_point;
+    this->attack_damage = src.attack_damage;
+}
+
 ClapTrap::~ClapTrap()
 {
     std::cout << "ClapTrap destructor called" << std::endl;
@@ -80,4 +88,13 @@ std::ostream &operator<<(std::ostream &o, ClapTrap const &i)
 {
     o << i.getHitPoint();
     return o;
+}
+
+ClapTrap &ClapTrap::operator=(ClapTrap const &rhs)
+{
+    this->name = rhs.name;
+    this->hit_point = rhs.hit_point;
+    this->energy_point = rhs.energy_point;
+    this->attack_damage = rhs.attack_damage;
+    return *this;
 }

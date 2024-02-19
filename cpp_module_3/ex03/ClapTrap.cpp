@@ -12,6 +12,14 @@ ClapTrap::ClapTrap(std::string _name) : name(_name), hit_point(10), energy_point
     return ;
 }
 
+ClapTrap::ClapTrap(ClapTrap const &src)
+{
+    this->name = src.name;
+    this->hit_point = src.hit_point;
+    this->energy_point = src.energy_point;
+    this->attack_damage = src.attack_damage;
+}
+
 ClapTrap::~ClapTrap()
 {
     std::cout << "ClapTrap destructor called" << std::endl;
@@ -67,6 +75,7 @@ void ClapTrap::beRepaired(unsigned int amount)
         return ;
     }
     std::cout << this->name + " has repaired itself of " << amount << " hit point!" << std::endl;
+    this->energy_point--;
     this->hit_point += amount;
     return ;
 }
@@ -74,6 +83,11 @@ void ClapTrap::beRepaired(unsigned int amount)
 int ClapTrap::getHitPoint(void) const
 {
     return this->hit_point;
+}
+
+int ClapTrap:: getEnergy(void) const
+{
+    return this->energy_point;
 }
 
 std::ostream &operator<<(std::ostream &o, ClapTrap const &i)

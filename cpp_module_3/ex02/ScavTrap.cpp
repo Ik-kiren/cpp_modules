@@ -20,6 +20,11 @@ ScavTrap::ScavTrap(std::string _name) : ClapTrap(_name)
     return ;
 }
 
+ScavTrap::ScavTrap(ScavTrap const &src) : ClapTrap(src)
+{
+
+}
+
 ScavTrap::~ScavTrap(void)
 {
     std::cout << "ScavTrap destructor called" << std::endl;
@@ -48,4 +53,13 @@ void ScavTrap::guardGate(void)
     std::cout << this->name << " is now in gate keeper mode" << std::endl;
 
     return ;
+}
+
+ScavTrap &ScavTrap::operator=(ScavTrap const &rhs)
+{
+    this->name = rhs.name;
+    this->hit_point = rhs.hit_point;
+    this->energy_point = rhs.energy_point;
+    this->attack_damage = rhs.attack_damage;
+    return *this;
 }

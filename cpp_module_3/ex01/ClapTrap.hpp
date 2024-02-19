@@ -8,7 +8,7 @@ class ClapTrap
 
 protected:
 
-    const std::string name;
+    std::string name;
     int hit_point;
     int energy_point;
     int attack_damage;
@@ -17,9 +17,12 @@ public:
 
     ClapTrap(void);
     ClapTrap(std::string _name);
+    ClapTrap(ClapTrap const &src);
     ~ClapTrap(void);
 
     int getHitPoint(void) const;
+
+    ClapTrap &operator=(ClapTrap const &rhs);
 
     void attack(const std::string &target);
     void takeDamage(unsigned int amount);

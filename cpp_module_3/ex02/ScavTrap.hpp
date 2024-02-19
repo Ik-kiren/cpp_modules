@@ -10,7 +10,10 @@ public:
 
     ScavTrap(void);
     ScavTrap(std::string _name);
+    ScavTrap(ScavTrap const &src);
     ~ScavTrap(void);
+
+    ScavTrap &operator=(ScavTrap const &rhs);
 
     void attack(const std::string &target);
     void guardGate(void);

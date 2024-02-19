@@ -13,7 +13,10 @@ public:
 
     DiamondTrap(void);
     DiamondTrap(std::string _name);
+    DiamondTrap(DiamondTrap const &src);
     ~DiamondTrap();
+
+    DiamondTrap &operator=(DiamondTrap const &rhs);
 
     using ScavTrap::attack;
     void whoAmI(void);

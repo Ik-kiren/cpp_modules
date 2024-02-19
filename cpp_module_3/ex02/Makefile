@@ -7,7 +7,7 @@ OBJS = $(SRCS:cpp=o)
 all: $(NAME)
 
 $(NAME) : $(OBJS)
-		g++ $(CPPFLAGS) $(OBJS) -o $(NAME)
+		$(CXX) $(CPPFLAGS) $(OBJS) -o $(NAME)
 
 fclean:
 	rm -rf $(OBJS) $(NAME)

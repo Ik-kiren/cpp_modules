@@ -20,6 +20,11 @@ FragTrap::FragTrap(std::string _name) : ClapTrap(_name)
     return ;
 }
 
+FragTrap::FragTrap(FragTrap const &src) : ClapTrap(src)
+{
+
+}
+
 FragTrap::~FragTrap(void)
 {
     std::cout << "FragTrap destructor called" << std::endl;
@@ -32,4 +37,13 @@ void FragTrap::highFivesGuys(void)
     std::cout << "FragTrap " + this->name + " high fived etalon du cul" << std::endl;
 
     return ;
+}
+
+FragTrap &FragTrap::operator=(FragTrap const &rhs)
+{
+    this->name = rhs.name;
+    this->hit_point = rhs.hit_point;
+    this->energy_point = rhs.energy_point;
+    this->attack_damage = rhs.attack_damage;
+    return *this;
 }
