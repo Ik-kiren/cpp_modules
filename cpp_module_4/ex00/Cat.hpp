@@ -8,18 +8,10 @@ class Cat : public Animal
 public:
 
     Cat(void);
+    Cat(Cat const &src);
     ~Cat(void);
 
-    void makeSound(void) const;
-};
-
-class WrongCat : public WrongAnimal
-{
-public:
-
-    WrongCat(void);
-    ~WrongCat(void);
-
+    Cat &operator=(Cat const &rhs);
     void makeSound(void) const;
 };
 

@@ -30,7 +30,7 @@ Fixed::Fixed(Fixed const &src)
 
 Fixed::~Fixed(void)
 {
-    std::cout << "deconstructor called" << std::endl;
+    std::cout << "destructor called" << std::endl;
 
     return;
 }

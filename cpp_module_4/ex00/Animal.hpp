@@ -12,25 +12,12 @@ protected:
 public:
 
     Animal(void);
-    ~Animal(void);
+    Animal(Animal const &src);
+    virtual ~Animal(void);
 
     std::string getType(void) const;
 
-    virtual void makeSound(void) const;
-};
-
-class WrongAnimal
-{
-protected:
-
-    std::string type;
-
-public:
-
-    WrongAnimal(void);
-    ~WrongAnimal(void);
-
-    std::string getType(void) const;
+    Animal &operator=(Animal const &rhs);
 
     virtual void makeSound(void) const;
 };
