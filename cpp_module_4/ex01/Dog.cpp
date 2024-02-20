@@ -6,9 +6,11 @@ Dog::Dog(void) : Animal(), brain(new Brain())
     this->type = "dog";
 }
 
-Dog::Dog(const Dog &dog)
+Dog::Dog(const Dog &dog) : Animal()
 {
-    *this = dog;
+    this->type = dog.type;
+    this->brain = new Brain;
+    *(this->brain) = *(dog.brain);
 }
 
 Dog::~Dog(void)
@@ -27,5 +29,6 @@ Dog &Dog::operator=(const Dog &rhs)
 
 void Dog::makeSound(void) const
 {
+    std::cout << this->brain << std::endl;
     std::cout << "woof woof" << std::endl;
 }

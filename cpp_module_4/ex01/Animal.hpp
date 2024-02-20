@@ -22,20 +22,4 @@ public:
     virtual void makeSound(void) const;
 };
 
-class WrongAnimal
-{
-protected:
-
-    std::string type;
-
-public:
-
-    WrongAnimal(void);
-    ~WrongAnimal(void);
-
-    std::string getType(void) const;
-
-    virtual void makeSound(void) const;
-};
-
 #endif

@@ -10,6 +10,9 @@ private:
 public:
     Brain(void);
     ~Brain(void);
+
+    std::string getIdea(int nbr) const;
+    void setIdea(int nbr, std::string str);
 };
 
 #endif

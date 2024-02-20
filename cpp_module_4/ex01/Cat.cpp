@@ -6,9 +6,11 @@ Cat::Cat(void) : Animal(), brain(new Brain())
     this->type = "cat";
 }
 
-Cat::Cat(Cat &cat)
+Cat::Cat(Cat &cat) : Animal()
 {
-    *this = cat;
+    this->type = cat.type;
+    this->brain = new Brain;
+    *(this->brain) = *(cat.brain);
 }
 
 Cat::~Cat(void)
@@ -30,18 +32,12 @@ void Cat::makeSound(void) const
     std::cout << "miaou miaou motherfucker" << std::endl;
 }
 
-WrongCat::WrongCat(void) : WrongAnimal()
+void Cat::setIdea(int nbr, std::string str)
 {
-    std::cout << "WrongCat constructor called" << std::endl;
-    this->type = "cat";
+    this->brain->setIdea(nbr, str);
 }
 
-WrongCat::~WrongCat(void)
+std::string Cat::getIdea(int nbr) const
 {
-    std::cout << "WrongCat destructor called" << std::endl;
-}
-
-void WrongCat::makeSound(void) const
-{
-    std::cout << "woof woof motherfucker" << std::endl;
+    return this->brain->getIdea(nbr);
 }

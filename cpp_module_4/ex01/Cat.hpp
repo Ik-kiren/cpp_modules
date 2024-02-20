@@ -19,16 +19,8 @@ public:
     Cat &operator=(const Cat &rhs);
 
     void makeSound(void) const;
-};
-
-class WrongCat : public WrongAnimal
-{
-public:
-
-    WrongCat(void);
-    ~WrongCat(void);
-
-    void makeSound(void) const;
+    void setIdea(int nbr, std::string str);
+    std::string getIdea(int nbr) const;
 };
 
 #endif

@@ -21,6 +21,7 @@ public:
     ~ClapTrap(void);
 
     int getHitPoint(void) const;
+    std::string getName(void) const;
 
     ClapTrap &operator=(ClapTrap const &rhs);
 

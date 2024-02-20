@@ -23,6 +23,7 @@ public:
     ClapTrap &operator=(ClapTrap const &rhs);
 
     int getHitPoint(void) const;
+    std::string getName(void) const;
 
     void attack(const std::string &target);
     void takeDamage(unsigned int amount);

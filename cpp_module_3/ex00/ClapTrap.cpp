@@ -64,6 +64,7 @@ void ClapTrap::takeDamage(unsigned int amount)
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
+    std::cout << "tep = " << this->energy_point << std::endl;
     if (this->hit_point <= 0)
     {
         std::cout << this->name + " is dead and cannot repair itself" << std::endl;
@@ -84,9 +85,14 @@ int ClapTrap::getHitPoint(void) const
     return this->hit_point;
 }
 
+std::string ClapTrap::getName(void) const
+{
+    return this->name;
+}
+
 std::ostream &operator<<(std::ostream &o, ClapTrap const &i)
 {
-    o << i.getHitPoint();
+    o << "ClapTrap " << i.getName() << " hp = " << i.getHitPoint();
     return o;
 }
 
