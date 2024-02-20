@@ -22,6 +22,7 @@ public:
 
     int getHitPoint(void) const;
     int getEnergy(void) const;
+    std::string getName(void) const;
 
     void attack(const std::string &target);
     void takeDamage(unsigned int amount);

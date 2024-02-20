@@ -22,7 +22,10 @@ FragTrap::FragTrap(std::string _name) : ClapTrap(_name)
 
 FragTrap::FragTrap(FragTrap const &src) : ClapTrap(src)
 {
-
+    this->hit_point = 100;
+    this->energy_point = 100;
+    this-> attack_damage = 30;
+    std::cout << "FragTrap constructor called" << std::endl;
 }
 
 FragTrap::~FragTrap(void)

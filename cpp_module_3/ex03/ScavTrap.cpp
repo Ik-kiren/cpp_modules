@@ -22,7 +22,10 @@ ScavTrap::ScavTrap(std::string _name) : ClapTrap(_name)
 
 ScavTrap::ScavTrap(ScavTrap const &src) : ClapTrap(src)
 {
-
+    this->hit_point = 100;
+    this->energy_point = 50;
+    this->attack_damage = 20;
+    std::cout << "ScavTrap constructor called" << std::endl;
 }
 
 ScavTrap::~ScavTrap(void)

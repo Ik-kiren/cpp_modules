@@ -90,9 +90,14 @@ int ClapTrap:: getEnergy(void) const
     return this->energy_point;
 }
 
+std::string ClapTrap::getName(void) const
+{
+    return this->name;
+}
+
 std::ostream &operator<<(std::ostream &o, ClapTrap const &i)
 {
-    o << i.getHitPoint();
+    o << i.getName() << " hp = " << i.getHitPoint();
     return o;
 }
 
