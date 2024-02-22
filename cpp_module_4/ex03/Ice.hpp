@@ -9,8 +9,10 @@ class Ice : public AMateria
 public:
 
     Ice(void);
-    Ice(const Ice &ice);
+    Ice(const Ice &src);
     ~Ice(void);
+
+    Ice &operator=(Ice const &rhs);
 
     AMateria *clone() const;
     

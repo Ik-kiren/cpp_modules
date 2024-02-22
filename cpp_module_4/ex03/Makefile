@@ -1,12 +1,17 @@
-CC = c++
+CXX = c++
 NAME = materia
-CPPFLAGS = -Wall
+CPPFLAGS = -Werror -Wall -Wextra -std=c++98 #-fsanitize=address
 SRCS = AMateria.cpp Character.cpp Cure.cpp Ice.cpp ICharacter.cpp IMateriaSource.cpp MateriaSource.cpp main.cpp
 OBJS = $(SRCS:cpp=o)
 
-all : $(NAME)
+all: $(NAME)
 
 $(NAME) : $(OBJS)
-	$(CC) $(CPPFLAGS) $(OBJS) -o $(NAME)
+		$(CXX) $(CPPFLAGS) $(OBJS) -o $(NAME)
 
+fclean:
+	rm -rf $(OBJS) $(NAME)
 
+re: fclean all
+
+.PHONY : all fclean re

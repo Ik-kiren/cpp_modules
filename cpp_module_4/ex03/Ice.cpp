@@ -5,14 +5,21 @@ Ice::Ice(void) : AMateria("ice")
     std::cout << "Ice constructor called" << std::endl;
 }
 
-Ice::Ice(const Ice &ice) : AMateria(ice.getType())
+Ice::Ice(const Ice &src) : AMateria(src)
 {
-    std::cout << "Ice constructor called" << std::endl;
+    std::cout << "Ice copy constructor called" << std::endl;
 }
 
 Ice::~Ice(void)
 {
     std::cout << "Ice destructor called" << std::endl;
+}
+
+Ice &Ice::operator=(Ice const &rhs)
+{
+    (void)rhs;
+    this->type = "ice";
+    return *this;
 }
 
 AMateria *Ice::clone() const

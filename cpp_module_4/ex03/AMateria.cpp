@@ -37,5 +37,6 @@ AMateria *AMateria::clone(void) const
 
 void AMateria::use(ICharacter &target)
 {
+    std::cout << "use materia on " << target.getName() << std::endl;
     return ;
 }

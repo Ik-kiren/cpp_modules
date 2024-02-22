@@ -21,14 +21,4 @@ public:
     void makeSound(void) const;
 };
 
-class WrongCat : public WrongAnimal
-{
-public:
-
-    WrongCat(void);
-    ~WrongCat(void);
-
-    void makeSound(void) const;
-};
-
 #endif

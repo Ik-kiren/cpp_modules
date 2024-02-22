@@ -1,5 +1,5 @@
 #ifndef CHARACTER_HPP
-# define CHARATER_HPP
+# define CHARACTER_HPP
 
 #include "ICharacter.hpp"
 #include "AMateria.hpp"
@@ -8,13 +8,16 @@ class Character : public ICharacter
 {
 private:
 
-    const std::string name;
+    std::string name;
     AMateria *inv[4];
+    static AMateria *ground[50];
 
 public:
     Character(const std::string _name);
     Character(const Character &character);
     ~Character(void);
+
+    Character &operator=(Character const &rhs);
 
     virtual const std::string &getName(void) const;
     virtual void equip(AMateria *m);
