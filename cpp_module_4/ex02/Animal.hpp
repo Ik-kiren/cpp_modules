@@ -9,10 +9,11 @@ protected:
 
     std::string type;
 
-public:
-
     Animal(void);
     Animal(const Animal &animal);
+
+public:
+
     virtual ~Animal(void) = 0;
 
     Animal &operator=(const Animal &src);

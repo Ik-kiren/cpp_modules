@@ -1,7 +1,7 @@
 CXX = c++
 NAME = brain
 CPPFLAGS = -Werror -Wall -Wextra -std=c++98
-SRCS = Animal.cpp Cat.cpp Brain.cpp Dog.cpp main.cpp
+SRCS = WrongAnimal.cpp WrongCat.cpp Animal.cpp Cat.cpp Brain.cpp Dog.cpp main.cpp
 OBJS = $(SRCS:cpp=o)
 
 all: $(NAME)
