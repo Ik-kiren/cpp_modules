@@ -13,7 +13,10 @@ private:
 public:
 
     MateriaSource(void);
+    MateriaSource(MateriaSource const &src);
     ~MateriaSource(void);
+
+    MateriaSource &operator=(MateriaSource const &rhs);
 
     virtual void learnMateria(AMateria*);
     virtual AMateria* createMateria(const std::string &type);

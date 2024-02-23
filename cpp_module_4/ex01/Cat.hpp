@@ -13,7 +13,7 @@ private:
 public:
 
     Cat(void);
-    Cat(Cat &cat);
+    Cat(Cat const &cat);
     ~Cat(void);
 
     Cat &operator=(const Cat &rhs);

@@ -9,9 +9,12 @@ all: $(NAME)
 $(NAME) : $(OBJS)
 		$(CXX) $(CPPFLAGS) $(OBJS) -o $(NAME)
 
-fclean:
-	rm -rf $(OBJS) $(NAME)
+clean:
+	rm -f $(OBJS)
+
+fclean: clean
+	rm -f $(NAME)
 
 re: fclean all
 
-.PHONY : all fclean re
+.PHONY : all clean fclean re

@@ -13,13 +13,13 @@ public:
 
     WrongAnimal(void);
     WrongAnimal(WrongAnimal const &src);
-    virtual ~WrongAnimal(void);
+    ~WrongAnimal(void);
 
     std::string getType(void) const;
 
     WrongAnimal &operator=(WrongAnimal const &rhs);
 
-    virtual void makeSound(void) const;
+    void makeSound(void) const;
 };
 
 #endif

@@ -21,6 +21,8 @@ Dog::~Dog(void)
 
 Dog &Dog::operator=(const Dog &rhs)
 {
+    if (this->brain)
+        delete brain;
     this->type = rhs.type;
     this->brain = new Brain;
     *(this->brain) = *(rhs.brain);
@@ -30,4 +32,14 @@ Dog &Dog::operator=(const Dog &rhs)
 void Dog::makeSound(void) const
 {
     std::cout << "woof woof" << std::endl;
+}
+
+void Dog::setIdea(int nbr, std::string str)
+{
+    this->brain->setIdea(nbr, str);
+}
+
+std::string Dog::getIdea(int nbr) const
+{
+    return this->brain->getIdea(nbr);
 }

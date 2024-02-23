@@ -66,24 +66,6 @@ Character &Character::operator=(Character const &rhs)
     return *this;
 }
 
-// Character *Character::operator=(Character const &rhs)
-// {
-//     this->name = rhs.name;
-//     std::cout << "WTF\n";
-//     for (size_t i = 0; i < 4; i++)
-//     {
-//         if (this->inv[i] != NULL)
-//         {
-//             delete this->inv[i];
-//             this->inv[i] = NULL;
-//         }
-//         if (rhs.inv[i])
-//         {
-//             this->inv[i] = rhs.inv[i]->clone();
-//         }
-//     }
-//     return this;
-// }
 
 const std::string &Character::getName(void) const
 {
@@ -115,6 +97,8 @@ void Character::equip(AMateria *m)
 
 void Character::unequip(int idx)
 {
+    if (idx < 0 || idx > 4)
+        return ;
     for (size_t i = 0; i < 50; i++)
     {
         if (ground[i] == inv[idx])
@@ -137,6 +121,8 @@ void Character::unequip(int idx)
 
 void Character::use(int idx, ICharacter &target)
 {
+    if (idx < 0 || idx > 4)
+        return ;
     if (this->inv[idx])
     {
         this->inv[idx]->use(target);

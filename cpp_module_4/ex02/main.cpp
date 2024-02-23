@@ -4,7 +4,7 @@
 
 int main()
 {
-    const Animal* j = new Dog();
+    /*const Animal* j = new Dog();
     const Animal* i = new Cat();
 
     std::cout << std::endl;
@@ -23,7 +23,7 @@ int main()
         tab[i]->makeSound();
         delete tab[i];
         std::cout << std::endl;
-    }
+    }*/
 
     /*Cat cat;
     cat.setIdea(0, "cat:idea0");
@@ -54,5 +54,8 @@ int main()
     cat.makeSound();
 
     std::cout << std::endl;*/
+    Cat doggo;
+    Cat dog;
+    dog = doggo;
     return 0;
 }

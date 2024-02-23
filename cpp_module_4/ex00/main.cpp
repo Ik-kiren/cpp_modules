@@ -4,7 +4,7 @@
 
 int main()
 {
-    const Animal* meta = new Animal();
+    /*const Animal* meta = new Animal();
     const Animal* j = new Dog();
     const Animal* i = new Cat();
 
@@ -23,9 +23,9 @@ int main()
 
     delete i;
     delete j;
-    delete meta;
+    delete meta;*/
 
-    /*const WrongAnimal* meta = new WrongAnimal();
+    const WrongAnimal* meta = new WrongAnimal();
     const Animal* j = new Dog();
     const WrongAnimal* i = new WrongCat();
 
@@ -44,7 +44,7 @@ int main()
 
     delete i;
     delete j;
-    delete meta;*/
+    delete meta;
 
     return 0;
 }

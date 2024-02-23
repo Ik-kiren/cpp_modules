@@ -6,9 +6,11 @@ Cat::Cat(void) : Animal(), brain(new Brain())
     this->type = "cat";
 }
 
-Cat::Cat(Cat &cat)
+Cat::Cat(Cat const &cat)
 {
-    *this = cat;
+    this->type = cat.type;
+    this->brain = new Brain;
+    *(this->brain) = *(cat.brain);
 }
 
 Cat::~Cat(void)
@@ -19,6 +21,8 @@ Cat::~Cat(void)
 
 Cat &Cat::operator=(const Cat &rhs)
 {
+    if (this->brain)
+        delete brain;
     this->type = rhs.type;
     this->brain = new Brain;
     *(this->brain) = *(rhs.brain);
@@ -27,5 +31,5 @@ Cat &Cat::operator=(const Cat &rhs)
 
 void Cat::makeSound(void) const
 {
-    std::cout << "miaou miaou motherfucker" << std::endl;
+    std::cout << "miaou miaou " << std::endl;
 }

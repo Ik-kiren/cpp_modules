@@ -22,7 +22,7 @@ std::string Animal::getType() const
 
 void Animal::makeSound(void) const
 {
-
+    std::cout << "default animal sound" << std::endl;
 }
 
 Animal &Animal::operator=(Animal const &rhs)

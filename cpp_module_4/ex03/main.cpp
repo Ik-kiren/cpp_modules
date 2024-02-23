@@ -4,9 +4,12 @@
 
 int main()
 {
-    IMateriaSource* src = new MateriaSource();
+    //IMateriaSource* src = new MateriaSource();
+    MateriaSource *src = new MateriaSource();
+    MateriaSource *src2 = new MateriaSource();
     src->learnMateria(new Ice());
     src->learnMateria(new Cure());
+    *src2 = *src;
     ICharacter* me = new Character("me");
     AMateria* tmp;
 
@@ -52,5 +55,6 @@ int main()
     delete bob;
     delete me;
     delete src;
+    delete src2;
     return 0;
 }
