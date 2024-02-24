@@ -1,6 +1,7 @@
 #ifndef ICE_HPP
 # define ICE_HPP
 
+# include <iostream>
 # include "AMateria.hpp"
 # include "ICharacter.hpp"
 

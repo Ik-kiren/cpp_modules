@@ -1,6 +1,7 @@
 #ifndef MATERIASOURCE_HPP
 # define MATERIASOURCE_HPP
 
+# include <iostream>
 # include "IMateriaSource.hpp"
 # include "Ice.hpp"
 # include "Cure.hpp"

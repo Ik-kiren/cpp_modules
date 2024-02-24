@@ -1,8 +1,9 @@
 #ifndef CHARACTER_HPP
 # define CHARACTER_HPP
 
-#include "ICharacter.hpp"
-#include "AMateria.hpp"
+# include <iostream>
+# include "ICharacter.hpp"
+# include "AMateria.hpp"
 
 class Character : public ICharacter
 {
