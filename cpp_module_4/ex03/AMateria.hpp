@@ -4,6 +4,12 @@
 # include <iostream>
 # include "ICharacter.hpp"
 
+#define RESET   "\033[0m"
+#define GREEN   "\033[32m"
+#define BLUE    "\033[34m"
+#define BOLDGREEN   "\033[1m\033[32m"
+#define BOLDBLUE    "\033[1m\033[34m"
+
 class ICharacter;
 
 class AMateria

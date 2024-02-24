@@ -1,6 +1,6 @@
 #include "ICharacter.hpp"
 
-ICharacter::~ICharacter()
+ICharacter::~ICharacter(void)
 {
-
+    std::cout << "ICharacter destructor called" << std::endl;
 }

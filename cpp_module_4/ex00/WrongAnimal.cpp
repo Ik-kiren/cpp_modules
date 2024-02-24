@@ -21,7 +21,7 @@ std::string WrongAnimal::getType() const
 
 void WrongAnimal::makeSound(void) const
 {
-    std::cout << "placeholder" << std::endl;
+    std::cout << "animal sound" << std::endl;
 }
 
 WrongAnimal &WrongAnimal::operator=(WrongAnimal const &rhs)

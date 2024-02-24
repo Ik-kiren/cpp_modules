@@ -2,17 +2,17 @@
 
 Ice::Ice(void) : AMateria("ice")
 {
-    std::cout << "Ice constructor called" << std::endl;
+    std::cout << BOLDBLUE << "Ice constructor called" << RESET << std::endl;
 }
 
 Ice::Ice(const Ice &src) : AMateria(src)
 {
-    std::cout << "Ice copy constructor called" << std::endl;
+    std::cout << BOLDBLUE << "Ice copy constructor called" << RESET << std::endl;
 }
 
 Ice::~Ice(void)
 {
-    std::cout << "Ice destructor called" << std::endl;
+    std::cout << BOLDBLUE << "Ice destructor called" << RESET << std::endl;
 }
 
 Ice &Ice::operator=(Ice const &rhs)
@@ -29,5 +29,5 @@ AMateria *Ice::clone() const
 
 void Ice::use(ICharacter &target)
 {
-    std::cout << "*shoots an ice bolt at " + target.getName() + " *"<< std::endl;
+    std::cout << BLUE << "*shoots an ice bolt at " + target.getName() + " *"<< RESET << std::endl;
 }

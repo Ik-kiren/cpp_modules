@@ -49,7 +49,6 @@ Character::~Character(void)
 
 Character &Character::operator=(Character const &rhs)
 {
-    std::cout << "WTF\n";
     this->name = rhs.name;
     for (size_t i = 0; i < 4; i++)
     {
@@ -97,7 +96,7 @@ void Character::equip(AMateria *m)
 
 void Character::unequip(int idx)
 {
-    if (idx < 0 || idx > 4)
+    if (idx < 0 || idx > 3)
         return ;
     for (size_t i = 0; i < 50; i++)
     {
@@ -121,8 +120,11 @@ void Character::unequip(int idx)
 
 void Character::use(int idx, ICharacter &target)
 {
-    if (idx < 0 || idx > 4)
+    if (idx < 0 || idx > 3)
+    {
+        std::cout << "slot doesn't exist" << std::endl;
         return ;
+    }
     if (this->inv[idx])
     {
         this->inv[idx]->use(target);
