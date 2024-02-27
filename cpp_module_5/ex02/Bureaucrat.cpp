@@ -17,7 +17,6 @@ Bureaucrat::Bureaucrat(void) : name("default"), grade(150)
 
 Bureaucrat::Bureaucrat(std::string _name, int _grade) : name(_name)
 {
-
 	if (_grade <= 0)
 		throw GradeTooHighException();
 	else if (_grade >= 151)
@@ -46,7 +45,7 @@ int Bureaucrat::getGrade() const
 	return this->grade;
 }
 
-void Bureaucrat:: incrGrade()
+void Bureaucrat::incrGrade()
 {
 	if (this->grade - 1 <= 0)
 		throw GradeTooHighException();
@@ -54,12 +53,20 @@ void Bureaucrat:: incrGrade()
 		this->grade--;
 }
 
-void Bureaucrat:: decrGrade()
+void Bureaucrat::decrGrade()
 {
 	if (this->grade + 1 >= 151)
 		throw GradeTooLowException();
 	else
 		this->grade++;
+}
+
+void Bureaucrat::signForm(AForm &form)
+{
+	if (form.getIsSigned())
+		std::cout << this->name << " signed " << form.getName() << std::endl;
+	else
+		std::cout << this->name << " couldn't sign " << form.getName() << " because " << this->grade << " is lower than " << form.getGradeToSign() << std::endl;
 }
 
 Bureaucrat &Bureaucrat::operator=(Bureaucrat const &rhs)
@@ -68,8 +75,13 @@ Bureaucrat &Bureaucrat::operator=(Bureaucrat const &rhs)
 	return *this;
 }
 
-std::ostream &operator<<(std::ostream &out, Bureaucrat const &src)
+void Bureaucrat::executeForm(AForm const &form)
 {
-	out << src.getName() << ", bureaucrat grade " << src.getGrade();
+	form.execute(*this);
+}
+
+std::ostream &operator<<(std::ostream &out, Bureaucrat const &rhs)
+{
+	out << rhs.getName() << ", bureaucrat grade " << rhs.getGrade();
 	return out;
 }

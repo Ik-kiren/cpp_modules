@@ -4,6 +4,9 @@
 # include <iostream>
 # include <cstdlib>
 # include <exception>
+# include "AForm.hpp"
+
+class AForm;
 
 class Bureaucrat
 {
@@ -37,8 +40,10 @@ public :
 
 	void		incrGrade(void);
 	void		decrGrade(void);
+	void		signForm(AForm &form);
+	void		executeForm(AForm const &form);
 };
 
-std::ostream &operator<<(std::ostream &out, Bureaucrat const &src);
+std::ostream &operator<<(std::ostream &out, Bureaucrat const &rhs);
 
 #endif
