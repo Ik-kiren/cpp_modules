@@ -3,6 +3,7 @@
 #include "ShrubberyCreationForm.hpp"
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
+#include "Intern.hpp"
 
 int main()
 {
@@ -32,6 +33,25 @@ int main()
         president.beSigned(paul);
         paul.executeForm(president);
 
+        Intern intern;
+        AForm *form;
+        
+        form = intern.makeForm("presidential pardon", "prez");
+
+        std::cout << *form << std::endl;
+
+        delete form;
+
+        Intern someRandomIntern;
+        AForm* rrf;
+        rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+
+        std::cout << *rrf << std::endl;
+
+        rrf->beSigned(paul);
+        paul.executeForm(*rrf);
+
+        delete rrf;
     }
     catch(const std::exception& e)
     {
