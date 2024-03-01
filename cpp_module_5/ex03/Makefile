@@ -1,6 +1,6 @@
 CXX = c++
 NAME = intern
-CPPFLAGS = -Werror -Wall -Wextra -std=c++98 -g3 -fsanitize=address
+CPPFLAGS = -Werror -Wall -Wextra -std=c++98 #-g3 -fsanitize=address
 SRCS = Intern.cpp Bureaucrat.cpp AForm.cpp PresidentialPardonForm.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp main.cpp
 OBJS = $(SRCS:cpp=o)
 

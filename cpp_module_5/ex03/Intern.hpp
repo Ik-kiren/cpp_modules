@@ -11,6 +11,10 @@ class Intern
 {
 private:
 
+AForm	*NewShrub(std::string target);
+AForm	*NewPres(std::string target);
+AForm	*NewRobot(std::string target);
+
 public :
 
 	struct FormNameError : public std::exception
@@ -26,5 +30,7 @@ public :
 
   Intern &operator=(Intern const &rhs);
 };
+
+typedef AForm *(Intern::*Functionptr)(std::string);
 
 #endif

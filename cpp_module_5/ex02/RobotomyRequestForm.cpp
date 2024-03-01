@@ -28,7 +28,7 @@ void RobotomyRequestForm::executeSpecial(void) const
 	if (random)
 		std::cout << this->target << " has been robotomized" << std::endl;
 	else
-		std::cout << this->target << " hasn't been robotomized" << std::endl;
+		std::cout << this->target:operator= << " hasn't been robotomized" << std::endl;
 }
 
 RobotomyRequestForm &RobotomyRequestForm::operator=(RobotomyRequestForm const &rhs)

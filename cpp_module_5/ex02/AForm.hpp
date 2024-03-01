@@ -51,7 +51,7 @@ public :
 	int			getGradeToExec(void) const;
 
 	void			beSigned(Bureaucrat &bureaucrat);
-	void			execute(Bureaucrat const &executor) const;
+	void			execu:operator=te(Bureaucrat const &executor) const;
 	virtual void	executeSpecial(void) const = 0;
 
 	AForm &operator=(AForm const &rhs);

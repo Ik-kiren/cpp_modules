@@ -2,7 +2,7 @@
 
 Intern::Intern(void)
 {
-  
+    
 }
 
 Intern::Intern(Intern const &src)
@@ -15,31 +15,35 @@ Intern::~Intern(void)
   
 }
 
+AForm *Intern::NewShrub(std::string target)
+{
+    return new ShrubberyCreationForm(target);
+}
+
+AForm *Intern::NewPres(std::string target)
+{
+    return new PresidentialPardonForm(target);
+}
+
+AForm *Intern::NewRobot(std::string target)
+{
+    return new RobotomyRequestForm(target);
+}
+
 AForm *Intern::makeForm(std::string name, std::string target)
 {
     std::string tab[3] = {"robotomy request", "presidential pardon", "shrubbery creation"};
+    Functionptr functionptr[] = {&Intern::NewRobot, &Intern::NewPres, &Intern::NewShrub};
 
     size_t  i = 0;
 
     while (i < 3)
     {
         if (!name.compare(tab[i]))
-            break;
+            return (this->*functionptr[i])(target);
         i++;
     }
-
-    switch (i)
-    {
-    case 0:
-        return new RobotomyRequestForm(target);
-    case 1:
-        return new PresidentialPardonForm(target);
-    case 2:
-        return new ShrubberyCreationForm(target);
-    default:
-        throw FormNameError();
-        break;
-    }
+    throw FormNameError();
 }
 
 const char *Intern::FormNameError::what() const throw()
