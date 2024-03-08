@@ -2,6 +2,7 @@
 # define SCALARCONVERTER_HPP
 
 # include <iostream>
+# include <iomanip>
 # include <cstdlib>
 
 class ScalarConverter
@@ -13,11 +14,14 @@ private:
 
 public :
 
-  ~ScalarConverter(void);
+	~ScalarConverter(void);
 
-  static void converter(const char *str);
+	static void charConverter(char c);
+	static void intConverter(int nbr);
+	static void floatConverter(float nbr);
+	static void converter(const std::string str);
 
-  ScalarConverter &operator=(ScalarConverter const &rhs);
+	ScalarConverter &operator=(ScalarConverter const &rhs);
 };
 
 #endif
