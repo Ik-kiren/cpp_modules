@@ -12,7 +12,7 @@ Intern::Intern(Intern const &src)
 
 Intern::~Intern(void)
 {
-  
+    
 }
 
 AForm *Intern::NewShrub(std::string target)

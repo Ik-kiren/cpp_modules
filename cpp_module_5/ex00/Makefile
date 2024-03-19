@@ -1,6 +1,6 @@
 CXX = c++
 NAME = bureaucrat
-CPPFLAGS = -Werror -Wall -Wextra -std=c++98 -fsanitize=address
+CPPFLAGS = -Werror -Wall -Wextra -std=c++98 #-fsanitize=address
 SRCS = Bureaucrat.cpp main.cpp
 OBJS = $(SRCS:cpp=o)
 

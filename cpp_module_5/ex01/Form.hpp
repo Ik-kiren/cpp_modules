@@ -17,6 +17,11 @@ class Form
 	{
 		virtual const char *what()const throw();
 	};
+	
+	struct FormAlreadySigned : public std::exception
+	{
+		virtual const char *what()const throw();
+	};
 
 private:
 

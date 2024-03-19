@@ -5,16 +5,21 @@ int main()
 {
     try
     {
-        Bureaucrat test("paul", 149);
-    	std::cout << test << std::endl;
-		test.decrGrade();
-		std::cout << test << std::endl;
+        Bureaucrat paul("paul", 141);
+    	std::cout << paul << std::endl;
+		paul.decrGrade();
+		std::cout << paul << std::endl;
 
-    	Form form("form", 140, 150);
+        Bureaucrat leo("leo", 120);
+
+    	Form form("form", 135, 150);
     
 		std::cout << form << std::endl;
 
-		form.beSigned(test);
+		form.beSigned(leo);
+        form.beSigned(paul);
+
+        //Form error("error", 152, 150);
     }
     catch(const std::exception& e)
     {

@@ -8,15 +8,9 @@ int main()
 {
     try
     {
-        Bureaucrat paul("paul", 4);
+        Bureaucrat paul("paul", 140);
         Bureaucrat fabio("fabio", 70);
         Bureaucrat tom("tom", 150);
-
-        std::cout << tom << std::endl;
-
-    	std::cout << paul << std::endl;
-		paul.decrGrade();
-		std::cout << paul << std::endl;
 
         ShrubberyCreationForm shrub("home");
         RobotomyRequestForm robot("robot");
@@ -24,6 +18,8 @@ int main()
 
 
         std::cout << shrub << std::endl;
+        std::cout << robot << std::endl;
+        std::cout << president << std::endl;
 
         shrub.beSigned(paul);
         paul.executeForm(shrub);

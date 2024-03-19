@@ -11,9 +11,9 @@ class Intern
 {
 private:
 
-AForm	*NewShrub(std::string target);
-AForm	*NewPres(std::string target);
-AForm	*NewRobot(std::string target);
+	AForm	*NewShrub(std::string target);
+	AForm	*NewPres(std::string target);
+	AForm	*NewRobot(std::string target);
 
 public :
 
@@ -22,13 +22,13 @@ public :
 		virtual const char *what() const throw();
 	};
 
-  Intern(void);
-  Intern(Intern const &src);
-  ~Intern(void);
+	Intern(void);
+	Intern(Intern const &src);
+	~Intern(void);
 
-  AForm *makeForm(std::string name, std::string target);
+	AForm *makeForm(std::string name, std::string target);
 
-  Intern &operator=(Intern const &rhs);
+	Intern &operator=(Intern const &rhs);
 };
 
 typedef AForm *(Intern::*Functionptr)(std::string);

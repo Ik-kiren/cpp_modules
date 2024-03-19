@@ -10,41 +10,22 @@ int main()
     try
     {
         Bureaucrat paul("paul", 4);
-        Bureaucrat fabio("fabio", 70);
-        Bureaucrat tom("tom", 150);
-
-        std::cout << tom << std::endl;
-
-    	std::cout << paul << std::endl;
-		paul.decrGrade();
-		std::cout << paul << std::endl;
-
-        ShrubberyCreationForm shrub("home");
-        RobotomyRequestForm robot("robot");
-        PresidentialPardonForm president("president");
-
-
-        std::cout << shrub << std::endl;
-
-        shrub.beSigned(paul);
-        paul.executeForm(shrub);
-        robot.beSigned(paul);
-        paul.executeForm(robot);
-        president.beSigned(paul);
-        paul.executeForm(president);
 
         Intern intern;
         AForm *form;
         
-        form = intern.makeForm("presidential pardon", "prez");
+        form = intern.makeForm("shrubbery creation", "shrub");
 
         std::cout << *form << std::endl;
+
+        form->beSigned(paul);
+        paul.executeForm(*form);
 
         delete form;
 
         Intern someRandomIntern;
         AForm* rrf;
-        rrf = someRandomIntern.makeForm("robotomy reques", "Bender");
+        rrf = someRandomIntern.makeForm("robotomy request", "Bender");
 
         std::cout << *rrf << std::endl;
 
@@ -52,6 +33,8 @@ int main()
         paul.executeForm(*rrf);
 
         delete rrf;
+
+        someRandomIntern.makeForm("robotomy reques", "Bender");
     }
     catch(const std::exception& e)
     {
