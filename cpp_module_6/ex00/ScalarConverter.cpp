@@ -51,11 +51,17 @@ void ScalarConverter::converter(const std::string str)
 	}
 	else if (!str.empty() && str.find_first_not_of("0123456789f.") == std::string::npos)
 	{
-		floatConverter(atof(str.c_str()));
-	}
-	else if (!str.empty() && str.find_first_not_of("0123456789.") == std::string::npos)
-	{
-		floatConverter(atol(str.c_str()));
+		for (size_t i = 0; i < str.length()  - 1; i++)
+		{
+			if (str[i] == 'f')
+			{
+				return ;
+			}
+		}
+		if (str[str.length()] == 'f')
+			floatConverter(atof(str.c_str()));
+		else
+			floatConverter(strtod(str.c_str(), NULL));
 	}
 	std::cout << str << std::endl;
 }
