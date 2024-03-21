@@ -1,6 +1,7 @@
 #include "ScalarConverter.hpp"
 
-int main()
+int main(int argc, char **argv)
 {
-    ScalarConverter::converter("114.05f");
+    (void)argc;
+    ScalarConverter::converter(argv[1]);
 }
