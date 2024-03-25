@@ -2,6 +2,7 @@
 
 int main(int argc, char **argv)
 {
-    (void)argc;
+    if (argc != 2)
+        return 0;
     ScalarConverter::converter(argv[1]);
 }

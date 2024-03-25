@@ -12,7 +12,7 @@ ScalarConverter::ScalarConverter(ScalarConverter const &src)
 
 ScalarConverter::~ScalarConverter(void)
 {
-
+	
 }
 
 void ScalarConverter::charConverter(const std::string str)
@@ -59,7 +59,6 @@ void ScalarConverter::converter(const std::string str)
 	intConverter(str);
 	floatConverter(str);
 	doubleConverter(str);
-	std::cout << str << std::endl;
 }
 
 ScalarConverter &ScalarConverter::operator=(ScalarConverter const &rhs)
