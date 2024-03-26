@@ -4,30 +4,30 @@
 # include <iostream>
 
 template< typename T >
-void swap(T &x, T &y)
+void swap(T &a, T &b)
 {
-    T z;
-    z = x;
-    x = y;
-    y = z;
+    T c;
+    c = a;
+    a = b;
+    b = c;
 }
 
 template< typename T >
-T min(T x, T y)
+T min(T a, T b)
 {
-    if (x < y)
-        return x;
+    if (a < b)
+        return a;
     else
-        return y;
+        return b;
 }
 
 template< typename T >
-T max(T x, T y)
+T max(T a, T b)
 {
-    if (x > y)
-        return x;
+    if (a > b)
+        return a;
     else
-        return y;
+        return b;
 }
 
 

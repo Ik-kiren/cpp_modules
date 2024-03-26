@@ -4,11 +4,11 @@
 # include <iostream>
 
 template< typename T , typename U, typename V>
-void iter(T &x, U &y, V &z)
+void iter(T &tab, U &size, V &func)
 {
-    for (int i = 0; i < y; i++)
+    for (int i = 0; i < size; i++)
     {
-        z(x[i]);
+        func(tab[i]);
     } 
 }
 
