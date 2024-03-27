@@ -33,6 +33,7 @@ int main(int, char**)
     }
     catch(const std::exception& e)
     {
+        std::cerr << "negative index" << std::endl;
         std::cerr << e.what() << '\n';
     }
     try
@@ -41,6 +42,7 @@ int main(int, char**)
     }
     catch(const std::exception& e)
     {
+        std::cerr << "max size index" << std::endl;
         std::cerr << e.what() << '\n';
     }
 

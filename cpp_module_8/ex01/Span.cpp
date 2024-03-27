@@ -5,9 +5,9 @@ Span::Span(void)
   
 }
 
-Span::Span(unsigned int unbr)
+Span::Span(unsigned int unbr) : size(unbr)
 {
-    this->size = unbr;  
+    
 }
 
 Span::Span(Span const &src)

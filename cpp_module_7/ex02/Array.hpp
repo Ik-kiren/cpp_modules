@@ -42,7 +42,7 @@ public:
     T &operator[](int index)
     {
         if (index >= tab_size || index < 0)
-            throw std::out_of_range ("oof");
+            throw std::out_of_range ("out of range");
         return (tab[index]);
     }
 
