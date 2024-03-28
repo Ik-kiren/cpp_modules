@@ -12,9 +12,18 @@ class MutantStack : public std::stack<T, C>
  public :
 
   MutantStack(void) : std::stack<T, C>(){};
+  MutantStack(MutantStack &src)
+  {
+    this->c = src.c;
+  }
   ~MutantStack(void){};
 
   typedef typename C::iterator iterator;
+
+  MutantStack &operator=(MutantStack const &rhs)
+  {
+    this->c = rhs.c;
+  }
 
   iterator begin()
   {
