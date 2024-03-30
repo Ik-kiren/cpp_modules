@@ -14,6 +14,6 @@ int main()
     vec1.push_back(30);
     vec1.push_back(35);
 
-    ::easyfind(lst1, 50);
+    ::easyfind(lst1, 25);
     ::easyfind(vec1, 50);
 }

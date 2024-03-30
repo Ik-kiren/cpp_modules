@@ -2,37 +2,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RPN.hpp                                            :+:      :+:    :+:   */
+/*   PmergeMe.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdupuis <cdupuis@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/30 11:29:23 by cdupuis           #+#    #+#             */
-/*   Updated: 2024/03/30 11:29:24 by cdupuis          ###   ########.fr       */
+/*   Created: 2024/03/30 11:23:20 by cdupuis           #+#    #+#             */
+/*   Updated: 2024/03/30 11:23:26 by cdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 # include <iostream>
-# include <stack>
-# include <algorithm>
+# include <deque>
+# include <vector>
 # include <string>
 
-class RPN {
+class PmergeMe {
  private:
-  std::stack<int> _rpnstack;
+  std::deque<int> _dtab;
+  std::vector<int> _vtab;
 
-  RPN(void);
+  PmergeMe(void);
 
  public :
-  explicit RPN(char *str);
-  RPN(RPN const &src);
-  ~RPN(void);
+  explicit PmergeMe(std::string str);
+  PmergeMe(PmergeMe const &src);
+  ~PmergeMe(void);
 
-  void plusOperation(std::string *str, size_t const &pos);
-  void minusOperation(std::string *str, size_t const &pos);
-  void multOperation(std::string *str, size_t const &pos);
-  void divideOperation(std::string *str, size_t const &pos);
+  void strtodeque(char **tab);
+  void strtovector(char **tab);
 
-  RPN &operator=(RPN const &rhs);
+  void dequeSort();
+  void vectorSort();
+
+  PmergeMe &operator=(PmergeMe const &rhs);
 };

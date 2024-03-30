@@ -15,8 +15,8 @@ private:
     virtual const char *what()const throw();
   };
 
-  std::list<int> list1;
-  int size;
+  std::list<int> _list1;
+  size_t  _size;
 
 public :
 
@@ -26,6 +26,9 @@ public :
   ~Span(void);
 
   void addNumber(int nbr);
+  void addNumber(std::list<int>::iterator it, std::list<int>::iterator ite);
+  void addNumber(int *tab);
+  void addNumber(int nbr, int nbr2);
   int shortestSpan();
   int longestSpan();
 

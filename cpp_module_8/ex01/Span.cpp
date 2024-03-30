@@ -5,15 +5,15 @@ Span::Span(void)
   
 }
 
-Span::Span(unsigned int unbr) : size(unbr)
+Span::Span(unsigned int unbr) : _size(unbr)
 {
     
 }
 
 Span::Span(Span const &src)
 {
-    this->size = src.size;
-    this->list1 = src.list1;
+    this->_size = src._size;
+    this->_list1 = src._list1;
 }
 
 Span::~Span(void)
@@ -28,31 +28,50 @@ const char *Span::shortList::what() const throw()
 
 Span &Span::operator=(Span const &rhs)
 {
-    this->size = rhs.size;
-    this->list1 = rhs.list1;
+    this->_size = rhs._size;
+    this->_list1 = rhs._list1;
     return *this;
 }
 
 void Span::addNumber(int nbr)
 {
-    if (list1.size() >= size)
+    if (_list1.size() >= _size)
         throw std::out_of_range ("test");
     else
-        list1.push_back(nbr);
+        _list1.push_back(nbr);
+}
+
+void Span::addNumber(int nbr, int nbr2)
+{
+    while (nbr < nbr2)
+    {
+        addNumber(nbr);
+        nbr++;
+    }
+}
+
+void Span::addNumber(std::list<int>::iterator it, std::list<int>::iterator ite)
+{
+    while (it != ite)
+    {
+        //std::cout << *it << std::endl;
+        addNumber(*it);
+        it++;
+    }
 }
 
 int Span::shortestSpan()
 {
-    if (list1.size() == 0 || list1.size() == 1)
+    if (_list1.size() == 0 || _list1.size() == 1)
         throw shortList();
     int result = 2147483647;
-    std::list<int>::iterator it = list1.begin();
-    std::list<int>::iterator it2 = list1.begin();
+    std::list<int>::iterator it = _list1.begin();
+    std::list<int>::iterator it2 = _list1.begin();
 
-    while (it2 != list1.end())
+    while (it2 != _list1.end())
     {
         it = it2;
-        while (it != list1.end())
+        while (it != _list1.end())
         {
             result = std::min(result, abs(*it - *(++it)));
         }
@@ -64,13 +83,15 @@ int Span::shortestSpan()
 
 int Span::longestSpan()
 {
-    if (list1.size() == 0 || list1.size() == 1)
+    if (_list1.size() == 0 || _list1.size() == 1)
         throw shortList();
-    std::list<int>::iterator max = std::max_element(list1.begin(), list1.end());
-    std::list<int>::iterator min = std::min_element(list1.begin(), list1.end());
+    std::list<int>::iterator max = std::max_element(_list1.begin(), _list1.end());
+    std::list<int>::iterator min = std::min_element(_list1.begin(), _list1.end());
 
     std::cout << *max - *min << std::endl;
 
     return *max;
 }
+
+
 

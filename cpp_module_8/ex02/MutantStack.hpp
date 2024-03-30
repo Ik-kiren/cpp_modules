@@ -4,7 +4,9 @@
 # include <stack>
 # include <list>
 # include <deque>
+# include <vector>
 # include <iostream>
+# include <iterator>
 
 template< typename T, typename C = std::deque<T> >
 class MutantStack : public std::stack<T, C>
@@ -14,7 +16,7 @@ class MutantStack : public std::stack<T, C>
   MutantStack(void) : std::stack<T, C>(){};
   MutantStack(MutantStack &src)
   {
-    this->c = src.c;
+    this = c;
   }
   ~MutantStack(void){};
 
@@ -22,7 +24,7 @@ class MutantStack : public std::stack<T, C>
 
   MutantStack &operator=(MutantStack const &rhs)
   {
-    this->c = rhs.c;
+    this = c;
   }
 
   iterator begin()

@@ -6,30 +6,19 @@
 # include <algorithm>
 # include <iostream>
 
+//retourner un iterateur
+
 template< typename T >
-int easyfind(T a, int nbr)
+typename T::iterator easyfind(T a, int nbr)
 {
-    bool find = false;
-    typename T::iterator it;
-    typename T::iterator ite = a.end();
-
-    /*if (std::find(a.begin(), a.end(), nbr) == a.end())
+    typename T::iterator it = find(a.begin(), a.end(), nbr);
+    if (it == a.end())
     {
         std::cout << "number not found" << std::endl;
-        return (0);
-    }*/
-
-    for (it = a.begin(); it != ite; ++it)
-    {
-        if (*it == nbr)
-            find = true;;
+        return (it);
     }
-    if (!find)
-    {
-        std::cout << "number not found" << std::endl;
-        return (0);
-    }
-    return (1);
+    else
+        return (it);
 }
 
 #endif
