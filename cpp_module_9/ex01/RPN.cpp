@@ -11,7 +11,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ex01/RPN.hpp"
+#include "RPN.hpp"
 
 RPN::RPN(void) {
   this->_rpnstack.push(0);
@@ -19,12 +19,10 @@ RPN::RPN(void) {
 
 RPN::RPN(char *_str) {
     std::size_t pos;
-    char *ptr;
     std::string str = _str;
     if (str.find_first_not_of("0123456789+*/- ") != std::string::npos)
         throw std::out_of_range("wrong char");
     do {
-        std::cout << str << std::endl;
         pos = str.find_first_of("0123456789+-*/");
         if (pos == std::string::npos)
             break;
@@ -37,13 +35,11 @@ RPN::RPN(char *_str) {
         } else if (str[pos] == '/') {
             divideOperation(&str, pos);
         } else {
-            _rpnstack.push(strtod(str.c_str() + pos, NULL));
-            std::cout << "stack = " << _rpnstack.top() << std::endl;
-            std::cout << "pos = " << pos << std::endl;
+            this-> _rpnstack.push(strtod(str.c_str() + pos, NULL));
             str.erase(0, pos + 1);
-            std::cout << "str = " << str << std::endl;
         }
     } while (pos != std::string::npos);
+    std::cout << this->_rpnstack.top() << std::endl;
 }
 
 RPN::RPN(RPN const &src) {
@@ -55,35 +51,39 @@ RPN::~RPN(void) {}
 
 void RPN::minusOperation(std::string *str, size_t const &pos) {
     int result = _rpnstack.top();
-    _rpnstack.pop();
-    _rpnstack.top() -= result;
-    std::cout << "top = " << _rpnstack.top() << std::endl;
+    this->_rpnstack.pop();
+    if (this->_rpnstack.size() == 0)
+        throw std::out_of_range("error: wrong format");
+    this->_rpnstack.top() -= result;
     str->erase(0, pos + 1);
 }
 
 void RPN::multOperation(std::string *str, size_t const &pos) {
     int result = _rpnstack.top();
-    _rpnstack.pop();
-    _rpnstack.top() *= result;
-    std::cout << "top = " << _rpnstack.top() << std::endl;
+    this->_rpnstack.pop();
+    if (this->_rpnstack.size() == 0)
+        throw std::out_of_range("error: wrong format");
+   this-> _rpnstack.top() *= result;
     str->erase(0, pos + 1);
 }
 
 void RPN::divideOperation(std::string *str, size_t const &pos) {
     int result = _rpnstack.top();
-    _rpnstack.pop();
+    this->_rpnstack.pop();
+    if (this->_rpnstack.size() == 0)
+        throw std::out_of_range("error: wrong format");
     if (result == 0)
         throw std::out_of_range("error: divided by 0");
-    _rpnstack.top() /= result;
-    std::cout << "top = " << _rpnstack.top() << std::endl;
+    this->_rpnstack.top() /= result;
     str->erase(0, pos + 1);
 }
 
 void RPN::plusOperation(std::string *str, size_t const &pos) {
     int result = _rpnstack.top();
-    _rpnstack.pop();
-    _rpnstack.top() += result;
-    std::cout << "top = " << _rpnstack.top() << std::endl;
+    this->_rpnstack.pop();
+    if (this->_rpnstack.size() == 0)
+        throw std::out_of_range("error: wrong format");
+    this->_rpnstack.top() += result;
     str->erase(0, pos + 1);
 }
 
