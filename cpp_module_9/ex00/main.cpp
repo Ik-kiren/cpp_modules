@@ -14,13 +14,23 @@
 #include "BitcoinExchange.hpp"
 
 int main(int argc, char **argv) {
-    double db = 50.54;
-    BitcoinExchange test = db;
     if (argc != 2)
         return (0);
-    std::ifstream file("data.csv");
-    std::ifstream file2(argv[1]);
-
-    BitcoinExchange data(file);
-    data.getBitcoinExchange(file2);
+    try {
+        std::ifstream file("data.csv");
+        std::ifstream file2(argv[1]);
+        if (file.peek() == std::ifstream::traits_type::eof() || file2.peek() == std::ifstream::traits_type::eof()) {
+            std::cout << "file empty" << std::endl;
+            return (1);
+        }
+        if (file2.fail() || file.fail()) {
+            std::cout << "failed to open" << std::endl;
+            return (1);
+        }
+        BitcoinExchange data(file);
+        data.getBitcoinExchange(file2);
+    }
+    catch (std::exception &e) {
+        std::cerr << e.what() << std::endl;
+    }
 }

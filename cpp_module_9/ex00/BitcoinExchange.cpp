@@ -20,21 +20,19 @@ BitcoinExchange::BitcoinExchange(void) {
 BitcoinExchange::BitcoinExchange(std::ifstream &file) {
     std::string line;
     getline(file, line);
+    if (file.peek() == std::ifstream::traits_type::eof()) {
+        throw std::out_of_range("error in first line");
+    }
     while (getline(file, line)) {
         std::size_t pos = line.find(",");
+        if (pos == std::string::npos)
+            throw std::out_of_range("error on line");
         std::string key = line.substr(0, pos);
         if (key.find("-") == std::string::npos || key.find_first_not_of("0123456789-") != std::string::npos)
-            throw std::out_of_range("out of range1");
+            throw std::out_of_range("error format");
         double val = strtod(line.substr(pos + 1).c_str(), NULL);
         this->_data.insert(std::pair<std::string, double>(key, val));
     }
-
-    /*std::map<std::string, double>::iterator it = data.begin();
-
-    for (; it != data.end(); it++)
-    {
-        std::cout << it->first << " = " << std::fixed << std::setprecision(2) << it->second << std::endl;
-    }*/
     file.close();
 }
 
@@ -47,19 +45,30 @@ BitcoinExchange::~BitcoinExchange(void) {}
 void BitcoinExchange::getBitcoinExchange(std::ifstream &file) {
     std::string line;
     getline(file, line);
+    if (file.peek() == std::ifstream::traits_type::eof()) {
+        throw std::out_of_range("error");
+    }
     while (getline(file, line)) {
         if (line.empty())
             continue;
         bool found = false;
         std::size_t pos = line.find("|");
+        if (pos == std::string::npos) {
+            std::cout << "error: bad input => " << line << std::endl;
+            continue;
+        }
         std::string key = line.substr(0, line.find(" "));
         if (key.find("-") == std::string::npos || key.find_first_not_of("0123456789- ") != std::string::npos) {
-            std::cout << "error on line" << std::endl;
+            std::cout << "error on line: " << line << std::endl;
             continue;
         }
         double val = strtod(line.substr(pos + 1).c_str(), NULL);
-        if (val > 1000 || val < 0) {
-            std::cout << "error on line" << std::endl;
+        if (val > 1000) {
+            std::cout << "error: number superior to 1000: " << line << std::endl;
+            continue;
+        }
+        if (val < 0) {
+            std::cout << "error: not a positive number: " << line << std::endl;
             continue;
         }
         checkData(key , val, &found);
@@ -74,14 +83,28 @@ void BitcoinExchange::checkData(std::string key, double val, bool *found) {
     for (; it != this->_data.end(); it++) {
         if (key == it->first) {
             *found = true;
-            std::cout << key << " = " << it->first << " = " << it->second << std::endl;
-            std::cout << std::fixed << std::setprecision(2) << val * it->second << std::endl;
+            std::cout << key
+                      << " => "
+                      << val
+                      << " => "
+                      << std::fixed
+                      << std::setprecision(2)
+                      << val * it->second
+                      << std::endl;
         }
         if (it->first < key && lower < it->first)
             lower = it->first;
     }
-    if (!found)
-        std::cout << std::fixed << std::setprecision(2) << val * this->_data[lower] << std::endl;
+    if (!*found) {
+        std::cout << key
+                      << " => "
+                      << val
+                      << " => "
+                      << std::fixed
+                      << std::setprecision(2)
+                      << val * this->_data[lower]
+                      << std::endl;
+    }
 }
 
 BitcoinExchange &BitcoinExchange::operator=(BitcoinExchange const &rhs) {

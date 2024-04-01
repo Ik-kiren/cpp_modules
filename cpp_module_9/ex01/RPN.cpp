@@ -72,6 +72,8 @@ void RPN::multOperation(std::string *str, size_t const &pos) {
 void RPN::divideOperation(std::string *str, size_t const &pos) {
     int result = _rpnstack.top();
     _rpnstack.pop();
+    if (result == 0)
+        throw std::out_of_range("error: divided by 0");
     _rpnstack.top() /= result;
     std::cout << "top = " << _rpnstack.top() << std::endl;
     str->erase(0, pos + 1);

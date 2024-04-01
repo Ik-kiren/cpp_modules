@@ -14,5 +14,10 @@
 #include "RPN.hpp"
 
 int main(int argc, char **argv) {
-    RPN rpn(argv[1]);
+    try {
+        RPN rpn(argv[1]);
+    }
+    catch(const std::exception& e) {
+        std::cerr << e.what() << '\n';
+    }
 }
